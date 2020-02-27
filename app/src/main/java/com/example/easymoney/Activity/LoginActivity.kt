@@ -1,9 +1,9 @@
-package com.example.easymoney
+package com.example.easymoney.Activity
 
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
+import com.example.easymoney.R
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
@@ -14,7 +14,7 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
 
         btnLogin.setOnClickListener{
-
+            startActivity(Intent(this, CoinAvaibleActivity::class.java))
         }
 
         textRegister.setOnClickListener {

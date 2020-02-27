@@ -1,7 +1,8 @@
-package com.example.easymoney
+package com.example.easymoney.Activity
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.example.easymoney.R
 
 class RegisterActivity : AppCompatActivity() {
 
