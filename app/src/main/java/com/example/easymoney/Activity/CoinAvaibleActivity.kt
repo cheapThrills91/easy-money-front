@@ -25,14 +25,14 @@ class CoinAvaibleActivity : AppCompatActivity() {
     }
 
     private fun getLista() : List<Coin>{
+
+
         var coin = Coin()
         coin.name = "Dolar"
-        coin.stateButton = true
         var coin2 = Coin()
         coin2.name = "Real"
         var coin3 = Coin()
         coin3.name = "Libra"
-        coin3.stateButton = true
 
         var coinList = ArrayList<Coin>()
         coinList.add(coin)

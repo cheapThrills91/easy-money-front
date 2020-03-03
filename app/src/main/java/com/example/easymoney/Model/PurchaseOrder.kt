@@ -1,9 +1,10 @@
 package com.example.easymoney.Model
 
-class PurchaseOrder {
-    var coin: Coin?= null
-    var valueCoin:Int?= null
-    var datePurchaseOrder:Double?= null
-    var receivingCoin:String?= null
-}
+data class PurchaseOrder (
+    val orderId:Int = 1,
+    val coin: Coin = Coin(),
+    val valueDesejada:Int = 0,
+    val valueValorCompra:Double = 10.0,
+    val valueQuantidadeValor:Double= 5.0
+)
 

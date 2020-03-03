@@ -1,9 +1,12 @@
 package com.example.easymoney.Model
 
-class Coin {
+class Coin (
 
-    var name:String?= null
-    var valueCoin:Int?= null
-    var stateButton= false
+    var name:String? = "Dolar",
+    var valueCoin:Int?= 10
 
+){
+    override fun toString(): String {
+        return name!!
+    }
 }

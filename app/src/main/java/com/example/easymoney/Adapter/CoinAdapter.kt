@@ -35,21 +35,13 @@ class CoinAdapter(private var listCoin: List<Coin>): RecyclerView.Adapter<CoinAd
             itemView.textCoinType.text = coin.name
             configState(coin)
             itemView.profile_image.setOnClickListener{
-                coin.stateButton = !(coin.stateButton)
-                configState(coin)
             }
             itemView.setOnClickListener {
-                coin.stateButton = !(coin.stateButton)
-                configState(coin)
             }
         }
 
         fun configState(coin: Coin) {
-            if (coin.stateButton) {
-                itemView.profile_image.background =itemView.context.getDrawable(R.drawable.ic_ball_check)
-            } else {
-                itemView.profile_image.setBackgroundResource(R.drawable.ic_ball)
-            }
+
         }
 
     }

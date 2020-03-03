@@ -1,34 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
+<android.support.constraint.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:id="@+id/parentView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".Activity.PurchaseOrderActivity">
+        android:layout_height="match_parent">
 
-    <android.support.design.widget.AppBarLayout
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:theme="@style/AppTheme.AppBarOverlay">
-
-        <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:background="?attr/colorPrimary"
-                app:popupTheme="@style/AppTheme.PopupOverlay"/>
-
-    </android.support.design.widget.AppBarLayout>
-
-    <include layout="@layout/content_purchase_order"/>
-
-    <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fab"
+    <TextView
+            android:id="@+id/textNameApp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
-            android:layout_margin="@dimen/fab_margin"
-            app:srcCompat="@android:drawable/ic_dialog_email"/>
+            android:text="Cadastro da ordem de Compra"
+            android:textSize="25sp"
+            android:layout_marginTop="40dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+    />
 
-</android.support.design.widget.CoordinatorLayout>
+    <android.support.constraint.Guideline
+            android:id="@+id/guideline_0.30"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.15"
+    />
+
+    <TextView
+            android:id="@+id/textDescricaoMoeda"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Selecione a moeda desejada:"
+            android:layout_marginTop="40dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/guideline_0.30"
+    />
+
+    <Spinner
+            android:id="@+id/coin_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textDescricaoMoeda"
+    />
+
+    <TextView
+            android:id="@+id/textDescricao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Selecione a data desejada:"
+            android:layout_marginTop="40dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/coin_spinner"
+    />
+
+    <EditText
+            android:id="@+id/edDataDesejada"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:inputType="date"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textDescricao"
+    >
+    </EditText>
+
+    <android.support.design.widget.TextInputLayout
+            android:id="@+id/tilValueCoin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:hint="Informe qual é o valor ideal para compra"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/edDataDesejada"
+    >
+
+        <EditText
+                android:id="@+id/edCoin"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+            android:id="@+id/tilQtoCoin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:hint="Informe qual é a quantidade"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tilValueCoin"
+    >
+
+
+        <EditText
+                android:id="@+id/edQtoCoin"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+            android:id="@+id/bCadastroOrdem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="Cadastrar Ordem"
+            android:enabled="true"
+            app:layout_constraintTop_toBottomOf="@id/tilQtoCoin"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+    />
+
+</android.support.constraint.ConstraintLayout>

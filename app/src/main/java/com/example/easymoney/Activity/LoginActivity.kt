@@ -14,7 +14,7 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
 
         btnLogin.setOnClickListener{
-            startActivity(Intent(this, CoinAvaibleActivity::class.java))
+            startActivity(Intent(this, PurchaseOrderActivity::class.java))
         }
 
         textRegister.setOnClickListener {
