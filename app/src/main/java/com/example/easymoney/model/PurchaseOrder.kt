@@ -1,4 +1,4 @@
-package com.example.easymoney.Model
+package com.example.easymoney.model
 
 data class PurchaseOrder (
     val orderId:Int = 1,

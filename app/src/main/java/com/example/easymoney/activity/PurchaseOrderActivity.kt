@@ -1,4 +1,4 @@
-package com.example.easymoney.Activity
+package com.example.easymoney.activity
 
 import android.os.Bundle
 import android.support.v7.app.AlertDialog
@@ -7,27 +7,43 @@ import android.widget.ArrayAdapter
 import android.widget.EditText
 import android.widget.Toast
 import com.example.easymoney.R
+import com.example.easymoney.model.Coin
+import com.example.easymoney.network.ApiClient
 import com.example.easymoney.util.FileUtil
 import com.example.easymoney.util.Mask
 
 import kotlinx.android.synthetic.main.activity_purchase_order.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class PurchaseOrderActivity : AppCompatActivity() {
 
     private val listViews = ArrayList<EditText>()
+    private var coins = ArrayList<Coin>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_purchase_order)
 
-        val coins = FileUtil.getCoin()
+        getData()
+
+        edDataDesejada.addTextChangedListener(Mask.mask("##/##/####", edDataDesejada))
+
+
+    }
+
+    private fun setupSpinner(){
+
+        val listCoin = listOf(coins.indices)
         var spinnerAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, coins)
 
         coin_spinner.adapter = spinnerAdapter
 
-        edDataDesejada.addTextChangedListener(Mask.mask("##/##/####", edDataDesejada))
+        coin_spinner.setSelection(spinnerAdapter.count)
 
         configView()
+
     }
 
     private fun configView() {
@@ -98,5 +114,24 @@ class PurchaseOrderActivity : AppCompatActivity() {
         return ""
 
     }
+
+    private fun getData() {
+        val call: Call<List<Coin>> = ApiClient.getClient.getCoins()
+        call.enqueue(object : Callback<List<Coin>> {
+
+            override fun onResponse(call: Call<List<Coin>>, response: Response<List<Coin>>) {
+                response.body()?.let { coins.addAll(it) }
+
+            }
+
+            override fun onFailure(call: Call<List<Coin>>?, t: Throwable?) {
+                coins.addAll(FileUtil.getCoin())
+
+            }
+        })
+
+        setupSpinner()
+    }
+
 
 }

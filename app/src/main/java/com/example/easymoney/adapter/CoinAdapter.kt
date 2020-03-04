@@ -1,10 +1,10 @@
-package com.example.easymoney.Adapter
+package com.example.easymoney.adapter
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.easymoney.Model.Coin
+import com.example.easymoney.model.Coin
 import com.example.easymoney.R
 import kotlinx.android.synthetic.main.coin_type.view.*
 

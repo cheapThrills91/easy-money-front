@@ -1,10 +1,10 @@
-package com.example.easymoney.Activity
+package com.example.easymoney.activity
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager
-import com.example.easymoney.Model.Coin
-import com.example.easymoney.Adapter.CoinAdapter
+import com.example.easymoney.model.Coin
+import com.example.easymoney.adapter.CoinAdapter
 import com.example.easymoney.R
 
 import kotlinx.android.synthetic.main.activity_coin_avaible.*

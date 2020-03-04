@@ -1,4 +1,4 @@
-package com.example.easymoney.Model
+package com.example.easymoney.model
 
 class Coin (
 

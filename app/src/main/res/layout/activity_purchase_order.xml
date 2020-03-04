@@ -50,7 +50,7 @@
             android:id="@+id/textDescricao"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Selecione a data desejada:"
+            android:text="Selecione até qual data seja esperar:"
             android:layout_marginTop="40dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/coin_spinner"
@@ -90,12 +90,11 @@
             android:id="@+id/tilQtoCoin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="15dp"
             android:hint="Informe qual é a quantidade"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tilValueCoin"
-    >
+            app:layout_constraintHorizontal_bias="0.0">
 
 
         <EditText

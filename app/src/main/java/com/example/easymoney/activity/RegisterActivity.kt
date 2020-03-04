@@ -1,4 +1,4 @@
-package com.example.easymoney.Activity
+package com.example.easymoney.activity
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
