@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager
 import com.example.easymoney.model.Coin
-import com.example.easymoney.adapter.CoinAdapter
+import com.example.easymoney.adapter.PurchaseOrderItemAdapter
 import com.example.easymoney.R
 
 import kotlinx.android.synthetic.main.activity_coin_avaible.*
@@ -18,9 +18,9 @@ class CoinAvaibleActivity : AppCompatActivity() {
         recycler_view_coin.setHasFixedSize(true)
         recycler_view_coin.layoutManager = LinearLayoutManager (this)
 
-        var coinAdapter = CoinAdapter(getLista())
+//        var coinAdapter = PurchaseOrderItemAdapter()
 
-        recycler_view_coin.adapter = coinAdapter
+//        recycler_view_coin.adapter = coinAdapter
 
     }
 

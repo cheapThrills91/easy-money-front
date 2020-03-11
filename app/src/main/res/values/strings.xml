@@ -4,4 +4,5 @@
     <string name="title_activity_main2">Main2Activity</string>
     <string name="title_activity_coin_avaible">CoinAvaibleActivity</string>
     <string name="title_activity_purchase_order">PurchaseOrderActivity</string>
+    <string name="item_purchase_order">Id: %1$s - Moeda: %2$s - Valor: %3$s </string>
 </resources>

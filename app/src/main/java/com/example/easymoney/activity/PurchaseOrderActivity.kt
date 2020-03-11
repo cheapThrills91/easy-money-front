@@ -28,29 +28,31 @@ class PurchaseOrderActivity : AppCompatActivity() {
 
         getData()
 
-        edDataDesejada.addTextChangedListener(Mask.mask("##/##/####", edDataDesejada))
+        etName.addTextChangedListener(Mask.mask("##/##/####", etName))
 
 
     }
 
     private fun setupSpinner(){
 
-        val listCoin = listOf(coins.indices)
-        var spinnerAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, coins)
+        val list = ArrayList<String>()
+        for (i in coins){
+            list.add(i.name.toString())
+        }
+        var spinnerAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, list)
 
         coin_spinner.adapter = spinnerAdapter
-
-        coin_spinner.setSelection(spinnerAdapter.count)
 
         configView()
 
     }
 
+
     private fun configView() {
 
-        bCadastroOrdem.setOnClickListener { effectiveOrder() }
+        btnRegisterOrder.setOnClickListener { effectiveOrder() }
 
-        listViews.add(edDataDesejada)
+        listViews.add(etName)
         listViews.add(edQtoCoin)
         listViews.add(edCoin)
 
@@ -79,7 +81,7 @@ class PurchaseOrderActivity : AppCompatActivity() {
         val builder = AlertDialog.Builder(this@PurchaseOrderActivity)
 
         builder.setTitle("Ordem cadastrada com sucesso")
-        builder.setMessage("Ordem 1 criada até ${edDataDesejada.text} ")
+        builder.setMessage("Ordem 1 criada até ${etName.text} ")
 
         builder.setPositiveButton("ok") { dialog, _ ->
             dialog.dismiss()
@@ -88,7 +90,7 @@ class PurchaseOrderActivity : AppCompatActivity() {
         val dialog: AlertDialog = builder.create()
         dialog.show()
 
-        edDataDesejada.text.clear()
+        etName.text.clear()
         edCoin.text.clear()
         edQtoCoin.text.clear()
     }
@@ -96,7 +98,7 @@ class PurchaseOrderActivity : AppCompatActivity() {
     private fun valida(field: EditText): String {
 
         when (field.id) {
-            edDataDesejada.id -> {
+            etName.id -> {
                 if (field.text.isNullOrEmpty())
                     return "Campo data não pode estar vazio"
             }
@@ -121,16 +123,19 @@ class PurchaseOrderActivity : AppCompatActivity() {
 
             override fun onResponse(call: Call<List<Coin>>, response: Response<List<Coin>>) {
                 response.body()?.let { coins.addAll(it) }
+                setupSpinner()
+
 
             }
 
             override fun onFailure(call: Call<List<Coin>>?, t: Throwable?) {
                 coins.addAll(FileUtil.getCoin())
+                setupSpinner()
+
 
             }
         })
 
-        setupSpinner()
     }
 
 

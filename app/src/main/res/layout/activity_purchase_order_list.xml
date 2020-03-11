@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".activity.PurchaseOrderListActivity">
+
+    <TextView
+            android:id="@+id/textNameApp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lista de ordem de Compra"
+            android:textSize="25sp"
+            android:layout_marginTop="40dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+    />
+
+    <android.support.constraint.Guideline
+            android:id="@+id/guideline_0.30"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.15"
+    />
+
+
+    <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_purchase_order_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/guideline_0.30"
+    >
+
+    </android.support.v7.widget.RecyclerView>
+
+
+    <Button
+            android:id="@+id/btnNewOrder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="Criar Nova Ordem"
+            android:enabled="true"
+            app:layout_constraintTop_toBottomOf="@id/recycler_purchase_order_list"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+    />
+
+</android.support.constraint.ConstraintLayout>
